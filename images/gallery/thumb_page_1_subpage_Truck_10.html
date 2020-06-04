@@ -1,0 +1,168 @@
+<!--
+   ASP.NET Image Gallery 
+   Created by Robert Van Dyk
+   8/8/2003
+   From code available from www.4guysfromrolla.com
+   Created by Scott Mitchell
+  Recommended Implementation to Embed into Personal Webpages
+  <IFRAME src="/" width="700" height="310" scrolling="auto" frameborder="0">
+  [Your user agent does not support frames or is currently configured not to display frames. However, you may visit
+  <A href="foo.html">the related document.</A>]
+  </IFRAME>
+  Change PathVar to point to the virtual path for the image directory, keep the trailing front-slash intact. 
+-->
+<script language="JavaScript">
+function NewWindow(url, w, h) 
+{ 
+// If you place Thumb.aspx in a different directory that your root image directory,
+// you will need to add the image directory to url below, like:
+// url = "/rootImageDirectory/" + url + ".jpg"
+  url = "/images/gallery/" + url + ".jpg"
+  if (w > screen.width || h > screen.width)
+  {
+    if (w > screen.width && h <= screen.height)
+    {
+      var nw = screen.width - 70;
+      var nh = parseInt(h) + 36
+    }
+    if (h > screen.height && w <= screen.width)
+    {
+      var nh = screen.height - 70;
+      var nw = parseInt(w) + 36
+    }
+    if (w > screen.width && h > screen.height)
+    {
+      var nh = screen.height - 70;
+      var nw = screen.width - 70;
+    }
+    window.open(url,"_blank","width=" + nw + ",height=" + nh + ",left=0,top=0,scrollbars=yes,resizable=yes");
+  }
+  else
+  {
+    var nh = parseInt(h) + 25;
+    var nw = parseInt(w) + 25;
+    window.open(url,"_blank","width=" + nw + ",height=" + nh + ",scrollbars=no,resizable=no");
+  }
+}
+</script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>
+	Truck - Label, Festival & Foundation
+</title><meta name="description" content="Welcome to the Truck website for all things pertaining to fun festivals, talented artists &amp; spirited people."/><meta name="keywords" content="truck festival, truck lineup, festival oxfordshire, festival oxon, festival steventon, truck label, truck releases, truck artists, recording studio oxford, truck community, truck shop, truck merchandise, Anat Ben David, The Black Madonnas, Dusty Sound System, Electric Soft Parade, Goldrush, Piney Gir, The Schla La Las, The Sound Movement, Trademark"/><link id="Link2" rel="stylesheet" media="all" type="text/css" href="../../../css/style.css"/><link id="Link3" rel="stylesheet" media="all" type="text/css" href="../../../css/menu.css"/></head>
+<body>
+   <form name="form1" method="post" action="../../../images/gallery/thumb_page_1_subpage_Truck_10/" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTExNTc1MDE2ODYPZBYCAgUPZBYGAgEPDxYCHgRUZXh0BTM8YSBocmVmPXRodW1iLmFzcHg/cGFnZT0xPmhvbWU8L2E+ICZyYXF1bzsgVHJ1Y2sgMTBkZAIDDzwrAAkBAA8WBB4IRGF0YUtleXMWAB4LXyFJdGVtQ291bnQCCGQWEGYPZBYCZg8VAYACPGEgaHJlZj0iamF2YXNjcmlwdDpOZXdXaW5kb3coJ1RydWNrIDEwL0J1Y2sgNjUnLCc4MDAnLCc2MDAnKSI+PGltZyBjbGFzcz0naXRlbWltYWdlJyBzcmM9InRodS5hc3B4P2ltZz1CdWNrJTIwNjUuanBnJnc9MTI0Jmg9OTMmcGF0aD1EOlxXV1dSb290XHRoaXNpc3RydWNrLmNvbVx3d3dcaW1hZ2VzXGdhbGxlcnlcVHJ1Y2slMjAxMFwiIGJvcmRlcj0wPjwvYT48YnI+PGRpdiBhbGlnbj1jZW50ZXI+PGJyPkJ1Y2sgNjU8YnI+PC9zcGFuPjwvZGl2PmQCAQ9kFgJmDxUBiwI8YSBocmVmPSJqYXZhc2NyaXB0Ok5ld1dpbmRvdygnVHJ1Y2sgMTAvRGlzY28gU2hlZCcsJzE2MDAnLCcxMjAwJykiPjxpbWcgY2xhc3M9J2l0ZW1pbWFnZScgc3JjPSJ0aHUuYXNweD9pbWc9RGlzY28lMjBTaGVkLmpwZyZ3PTEyNCZoPTkzJnBhdGg9RDpcV1dXUm9vdFx0aGlzaXN0cnVjay5jb21cd3d3XGltYWdlc1xnYWxsZXJ5XFRydWNrJTIwMTBcIiBib3JkZXI9MD48L2E+PGJyPjxkaXYgYWxpZ249Y2VudGVyPjxicj5EaXNjbyBTaGVkPGJyPjwvc3Bhbj48L2Rpdj5kAgIPZBYCZg8VAYECPGEgaHJlZj0iamF2YXNjcmlwdDpOZXdXaW5kb3coJ1RydWNrIDEwL0dvbGRydXNoJywnODAwJywnNjAwJykiPjxpbWcgY2xhc3M9J2l0ZW1pbWFnZScgc3JjPSJ0aHUuYXNweD9pbWc9R29sZHJ1c2guanBnJnc9MTI0Jmg9OTMmcGF0aD1EOlxXV1dSb290XHRoaXNpc3RydWNrLmNvbVx3d3dcaW1hZ2VzXGdhbGxlcnlcVHJ1Y2slMjAxMFwiIGJvcmRlcj0wPjwvYT48YnI+PGRpdiBhbGlnbj1jZW50ZXI+PGJyPkdvbGRydXNoPGJyPjwvc3Bhbj48L2Rpdj5kAgMPZBYCZg8VAZoCPGEgaHJlZj0iamF2YXNjcmlwdDpOZXdXaW5kb3coJ1RydWNrIDEwL0hhbXUncyBIZWFkc2hhdmUnLCc0NTAnLCc2MDAnKSI+PGltZyBjbGFzcz0naXRlbWltYWdlJyBzcmM9InRodS5hc3B4P2ltZz1IYW11J3MlMjBIZWFkc2hhdmUuanBnJnc9NzAmaD05MyZwYXRoPUQ6XFdXV1Jvb3RcdGhpc2lzdHJ1Y2suY29tXHd3d1xpbWFnZXNcZ2FsbGVyeVxUcnVjayUyMDEwXCIgYm9yZGVyPTA+PC9hPjxicj48ZGl2IGFsaWduPWNlbnRlcj48YnI+SGFtdSdzIEhlYWRzaGF2ZTxicj48L3NwYW4+PC9kaXY+ZAIED2QWAmYPFQGJAjxhIGhyZWY9ImphdmFzY3JpcHQ6TmV3V2luZG93KCdUcnVjayAxMC9JZGxld2lsZCAxJywnODAwJywnNjAwJykiPjxpbWcgY2xhc3M9J2l0ZW1pbWFnZScgc3JjPSJ0aHUuYXNweD9pbWc9SWRsZXdpbGQlMjAxLmpwZyZ3PTEyNCZoPTkzJnBhdGg9RDpcV1dXUm9vdFx0aGlzaXN0cnVjay5jb21cd3d3XGltYWdlc1xnYWxsZXJ5XFRydWNrJTIwMTBcIiBib3JkZXI9MD48L2E+PGJyPjxkaXYgYWxpZ249Y2VudGVyPjxicj5JZGxld2lsZCAxPGJyPjwvc3Bhbj48L2Rpdj5kAgUPZBYCZg8VAYkCPGEgaHJlZj0iamF2YXNjcmlwdDpOZXdXaW5kb3coJ1RydWNrIDEwL0lkbGV3aWxkIDInLCc2MDAnLCc0NTAnKSI+PGltZyBjbGFzcz0naXRlbWltYWdlJyBzcmM9InRodS5hc3B4P2ltZz1JZGxld2lsZCUyMDIuanBnJnc9MTI0Jmg9OTMmcGF0aD1EOlxXV1dSb290XHRoaXNpc3RydWNrLmNvbVx3d3dcaW1hZ2VzXGdhbGxlcnlcVHJ1Y2slMjAxMFwiIGJvcmRlcj0wPjwvYT48YnI+PGRpdiBhbGlnbj1jZW50ZXI+PGJyPklkbGV3aWxkIDI8YnI+PC9zcGFuPjwvZGl2PmQCBg9kFgJmDxUBjgI8YSBocmVmPSJqYXZhc2NyaXB0Ok5ld1dpbmRvdygnVHJ1Y2sgMTAvTW9iaWxlIEhvbWVzJywnNjAwJywnODAyJykiPjxpbWcgY2xhc3M9J2l0ZW1pbWFnZScgc3JjPSJ0aHUuYXNweD9pbWc9TW9iaWxlJTIwSG9tZXMuanBnJnc9NzAmaD05MyZwYXRoPUQ6XFdXV1Jvb3RcdGhpc2lzdHJ1Y2suY29tXHd3d1xpbWFnZXNcZ2FsbGVyeVxUcnVjayUyMDEwXCIgYm9yZGVyPTA+PC9hPjxicj48ZGl2IGFsaWduPWNlbnRlcj48YnI+TW9iaWxlIEhvbWVzPGJyPjwvc3Bhbj48L2Rpdj5kAgcPZBYCZg8VAfkBPGEgaHJlZj0iamF2YXNjcmlwdDpOZXdXaW5kb3coJ1RydWNrIDEwL01yIEVkJywnNjAwJywnODAyJykiPjxpbWcgY2xhc3M9J2l0ZW1pbWFnZScgc3JjPSJ0aHUuYXNweD9pbWc9TXIlMjBFZC5qcGcmdz03MCZoPTkzJnBhdGg9RDpcV1dXUm9vdFx0aGlzaXN0cnVjay5jb21cd3d3XGltYWdlc1xnYWxsZXJ5XFRydWNrJTIwMTBcIiBib3JkZXI9MD48L2E+PGJyPjxkaXYgYWxpZ249Y2VudGVyPjxicj5NciBFZDxicj48L3NwYW4+PC9kaXY+ZAIFDw8WAh8ABZ4BPHRoIHdpZHRoPTIwJT4gJm5ic3A7IDwvdGg+PHRkPjxjZW50ZXI+UGFnZSAxIG9mIDM8L2NlbnRlcj48L3RkPjx0ZCBhbGlnbj1jZW50ZXIgd2lkdGg9MjAlPiA8YSBocmVmPSd0aHVtYi5hc3B4P3BhZ2U9MiZzdWJwYWdlPVRydWNrIDEwJz5OZXh0ICZyYXF1bzs8L2E+PC90ZD5kZGRfeDT+jyrKPbGfmfccnhITLlXKqw=="/>
+   <div id="wrapper">	
+    <div id="header">
+        <span class="logo"><a href="/"><img src="../../../images/logo.gif" width="147" height="188"></a></span>
+        <span class="banneradtop"><a href="mailto:stewart@thisistruck.com?subject=Advert Enquiry"></a></span>
+        <span class="register"><a href="../../../register/"></a></span>
+    </div>
+    <div id="left"> 
+        <!-- DO NOT MOVE! The following AllWebMenus linking code section must always be placed right AFTER the BODY tag-->
+        <!-- ******** BEGIN ALLWEBMENUS CODE FOR menu ******** -->
+        <div id="awmAnchor-menu"><img name="awmMenuPathImg-menu" id="awmMenuPathImg-menu" src="../../../code/dot.gif" alt="" width="1" height="1"></div><script type="text/javascript">var MenuLinkedBy='AllWebMenus [4]', awmBN='624'; awmAltUrl='';</script><script charset="UTF-8" src="../../../code/menu.js" language="JavaScript1.2" type="text/javascript"></script><script type="text/javascript">awmBuildMenu();</script>
+        <!-- ******** END ALLWEBMENUS CODE FOR menu ******** -->
+    </div>
+    <div id="content">
+<h1>Gallery</h1>
+<p>
+<table width="100%" cellspacing="4" cellpadding="0" border="0" bgcolor="ffffff">
+  <tr>
+    <td colspan="5">
+      <span id="top"><a href="/">home</a> &raquo; Truck 10</span>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5" align="center">
+      <table id="dlPictures" cellspacing="5" cellpadding="0" rules="all" border="1">
+	<tr>
+		<td align="center" valign="bottom" width="125"><font size="1">
+	  <table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" bgcolor="ffffff">
+            <tr>
+              <td onmouseover="javascript:if (document.all) this.style.backgroundColor='#eeeeee';this.style.filter = 'alpha(opacity=100)'" onmouseout="javascript:if (document.all) this.style.backgroundColor='#ffffff';this.style.filter = 'alpha(opacity=70)';" align="center">
+                <br><a href="javascript:NewWindow('Truck 10/Buck 65','800','600')"></a><br><div align="center"><br>Buck 65<br></span></div>
+              </td>
+            </tr>
+          </table>
+        </font></td><td align="center" valign="bottom" width="125"><font size="1">
+	  <table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" bgcolor="ffffff">
+            <tr>
+              <td onmouseover="javascript:if (document.all) this.style.backgroundColor='#eeeeee';this.style.filter = 'alpha(opacity=100)'" onmouseout="javascript:if (document.all) this.style.backgroundColor='#ffffff';this.style.filter = 'alpha(opacity=70)';" align="center">
+                <br><a href="javascript:NewWindow('Truck 10/Hamu's Headshave','450','600')"></a><br><div align="center"><br>Hamu's Headshave<br></span></div>
+              </td>
+            </tr>
+          </table>
+        </font></td><td align="center" valign="bottom" width="125"><font size="1">
+	  <table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" bgcolor="ffffff">
+            <tr>
+              <td onmouseover="javascript:if (document.all) this.style.backgroundColor='#eeeeee';this.style.filter = 'alpha(opacity=100)'" onmouseout="javascript:if (document.all) this.style.backgroundColor='#ffffff';this.style.filter = 'alpha(opacity=70)';" align="center">
+                <br><a href="javascript:NewWindow('Truck 10/Mobile Homes','600','802')"></a><br><div align="center"><br>Mobile Homes<br></span></div>
+              </td>
+            </tr>
+          </table>
+        </font></td>
+	</tr><tr>
+		<td align="center" valign="bottom" width="125"><font size="1">
+	  <table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" bgcolor="ffffff">
+            <tr>
+              <td onmouseover="javascript:if (document.all) this.style.backgroundColor='#eeeeee';this.style.filter = 'alpha(opacity=100)'" onmouseout="javascript:if (document.all) this.style.backgroundColor='#ffffff';this.style.filter = 'alpha(opacity=70)';" align="center">
+                <br><a href="javascript:NewWindow('Truck 10/Disco Shed','1600','1200')"></a><br><div align="center"><br>Disco Shed<br></span></div>
+              </td>
+            </tr>
+          </table>
+        </font></td><td align="center" valign="bottom" width="125"><font size="1">
+	  <table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" bgcolor="ffffff">
+            <tr>
+              <td onmouseover="javascript:if (document.all) this.style.backgroundColor='#eeeeee';this.style.filter = 'alpha(opacity=100)'" onmouseout="javascript:if (document.all) this.style.backgroundColor='#ffffff';this.style.filter = 'alpha(opacity=70)';" align="center">
+                <br><a href="javascript:NewWindow('Truck 10/Idlewild 1','800','600')"></a><br><div align="center"><br>Idlewild 1<br></span></div>
+              </td>
+            </tr>
+          </table>
+        </font></td><td align="center" valign="bottom" width="125"><font size="1">
+	  <table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" bgcolor="ffffff">
+            <tr>
+              <td onmouseover="javascript:if (document.all) this.style.backgroundColor='#eeeeee';this.style.filter = 'alpha(opacity=100)'" onmouseout="javascript:if (document.all) this.style.backgroundColor='#ffffff';this.style.filter = 'alpha(opacity=70)';" align="center">
+                <br><a href="javascript:NewWindow('Truck 10/Mr Ed','600','802')"></a><br><div align="center"><br>Mr Ed<br></span></div>
+              </td>
+            </tr>
+          </table>
+        </font></td>
+	</tr><tr>
+		<td align="center" valign="bottom" width="125"><font size="1">
+	  <table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" bgcolor="ffffff">
+            <tr>
+              <td onmouseover="javascript:if (document.all) this.style.backgroundColor='#eeeeee';this.style.filter = 'alpha(opacity=100)'" onmouseout="javascript:if (document.all) this.style.backgroundColor='#ffffff';this.style.filter = 'alpha(opacity=70)';" align="center">
+                <br><a href="javascript:NewWindow('Truck 10/Goldrush','800','600')"></a><br><div align="center"><br>Goldrush<br></span></div>
+              </td>
+            </tr>
+          </table>
+        </font></td><td align="center" valign="bottom" width="125"><font size="1">
+	  <table cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" bgcolor="ffffff">
+            <tr>
+              <td onmouseover="javascript:if (document.all) this.style.backgroundColor='#eeeeee';this.style.filter = 'alpha(opacity=100)'" onmouseout="javascript:if (document.all) this.style.backgroundColor='#ffffff';this.style.filter = 'alpha(opacity=70)';" align="center">
+                <br><a href="javascript:NewWindow('Truck 10/Idlewild 2','600','450')"></a><br><div align="center"><br>Idlewild 2<br></span></div>
+              </td>
+            </tr>
+          </table>
+        </font></td><td><font size="1"></font></td>
+	</tr>
+</table>
+    </td>
+  </tr>
+  <tr> 
+    <span id="bottom"><th width="20%"> &nbsp; </th><td><center>Page 1 of 3</center></td><td align="center" width="20%"> <a href="/">Next &raquo;</a></td></span>
+  </tr>
+</table>
+</p>
+    </div>
+    <div class="clear">&nbsp;</div>
+    <div id="footer"><p> Truck - Label, Festival & Foundation. Copyright © 2007</p>
+<p style="margin-top:0; padding-top:0; font-size:11px; clear:both"><a href="http://www.ark-creative.co.uk/" target="_blank">Developed by Ark Creative</a></p>
+</div>
+    </div>
+    </form>
+</body>
+</html>

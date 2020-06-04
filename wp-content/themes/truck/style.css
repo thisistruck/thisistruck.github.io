@@ -1,0 +1,267 @@
+@charset utf-8;
+/*
+Theme Name: Truck Festival
+Theme URI: http://www.letsbrandit.co.uk/
+Author: Lets Brand It
+Author URI: http://www.letsbrandit.co.uk/
+Description: The theme for the Truck Festival site.
+Version: 3.1
+*/
+
+body {
+	background:#95cbed;
+	margin:0;
+}
+
+#main {
+
+}
+
+header {
+	
+}
+	nav {
+		
+	}
+	nav.primary {
+		
+	}
+	nav.footer {
+		
+	}
+	#widget-header {
+		
+	}
+	#widget-alert {
+		
+	}
+
+#content {
+	
+}
+	article {
+		
+	}
+		.featured-thumbnail {
+			
+		}
+		.post-content {
+			
+		}
+			.pagination {
+				
+			}
+	.post-meta {
+		
+	}
+	.post-navigation {
+		
+	}
+
+#comments {
+	width:600px;
+}
+	li.comment {
+		list-style:none;
+	}
+		.odd {
+			
+		}
+		.even {
+			
+		}
+		.author-comment {
+			
+		}
+		.comment-text {
+
+		}
+			.comment-text-body {
+				padding-left:55px;
+			}
+		.comment-meta {
+			font-family:Arial, Verdana, sans-serif;
+			font-size:11px;
+			color:#000;
+			position:relative;
+		}
+		.avatar {
+			float:left;
+		}
+			.comment-poster {
+				float:right;
+			}
+			p.gravatar {
+				
+			}
+		.waiting-for-approval {
+			
+		}
+	#trackbacks {
+		
+	}
+		li.trackback {
+			
+		}
+	p#no-comments {
+		
+	}
+	#comments-form {
+		padding-top:15px;
+	}
+		#respond {
+			
+		}
+		.cancel-comment-reply {
+			
+		}
+
+.page {
+	
+}
+	#page-content {
+		
+	}
+	#page-meta {
+		
+	}
+
+.post {
+	
+}
+	.postContent {
+		
+	}
+	.post-excerpt {
+		
+	}
+
+nav.oldernewer {
+	
+}
+	.older {
+		
+	}
+	.newer {
+		
+	}
+
+.search {
+	
+}
+
+.author {
+	
+}
+#recent-author-posts {
+	
+}
+#recent-author-comments {
+	
+}
+
+#error404 {
+	
+}
+
+#sidebar {
+	
+}
+	#widget-sidebar {
+		
+	}
+		#sidebar-search {
+			
+		}
+		#sidebar-nav {
+			
+		}
+		#sidebar-archives {
+			
+		}
+		#sidebar-meta {
+			
+		}
+		.widget, .widget-area {
+			margin-bottom:15px;
+				font-family: "Courier New", Arial, Verdana;
+				font-size:13px;
+				line-height:15px;
+				color:#4d4d4f;
+				text-align:justify;
+		}
+		.widget ul, .widget-area ul {
+			font-family: "Courier New", Arial, Verdana;
+			font-size:13px;
+			line-height:15px;
+			color:#4d4d4f;
+			margin:0;
+			padding:0 0 0 15px;
+		}
+		
+		.widget ul li, .widget-area ul li {
+			margin-bottom:10px;
+		}
+		.widget a, .widget a:visited {
+			
+		}
+		.widget a:hover, .widget-area a:hover {
+			color:#F16B2A;
+			text-decoration:none;
+		}
+		.widget ul li ul, .widget-area ul li ul {
+			margin-top:10px !important;
+		}
+		
+		.widget .menu {
+			padding-left:0;
+			margin-left:0;
+		}
+		.widget .menu ul {
+			padding-left:0;
+			margin-left:0;
+		}
+		.widget .menu ul li ul {
+			margin-left:15px;
+		}
+		
+		#searchform {
+			font-family: "Courier New", Arial, Verdana;
+			font-size:13px;
+			color:#4d4d4f;
+		}
+		#searchform .screen-reader-text {
+			display:none;
+		}
+#footer {
+	
+}
+	#widget-footer {
+		
+	}
+	#footer-nav {
+		
+	}
+	
+.no-results {
+	
+}
+
+.widget-area {
+	
+}
+
+.hide { /* this class is used to hid the skip to content link at the beginning of the document for accessibility */
+	display: none;
+}
+.clear {
+	clear: both;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+
+/* Always remember to compress your live stylesheet and keep an uncompressed backup */

@@ -1,0 +1,580 @@
+# invoke rewrite engine
+RewriteEngine On
+RewriteBase /
+
+Options -Indexes
+<IfModule mod_negotiation.c>
+	Options -MultiViews
+</IfModule>
+
+# Redirect to www
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# redirect all extension to html
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.shtml$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.phtml$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.htm$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.php$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.aspx$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.asp$ $1.html [L,NC,R=301]
+RewriteCond %{QUERY_STRING} ^$
+RewriteRule ^(.*)\.jsp$ $1.html [L,NC,R=301]
+
+# Add a trailing slash (/) to a URL
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\.[A-Za-z0-9]*$
+RewriteRule .*[^/]$ %{REQUEST_URI}/ [L,R=301]
+
+# Create pretty URLs
+RewriteRule ^([^/]+)/$ $1.html
+RewriteRule ^([^/]+)/([^/]+)/$ $1/$2.html
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/$ $1/$2/$3.html
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ $1/$2/$3/$4.html
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ $1/$2/$3/$4/$5.html
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ $1/$2/$3/$4/$5/$6.html
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ $1/$2/$3/$4/$5/$6/$7.html
+
+RewriteRule ^index.html$ / [L,R=301]
+RewriteCond %{QUERY_STRING} ^ReturnUrl\=\%2Fadmin_cms\%2Fdefault\.aspx$
+RewriteRule ^[\/]?$ admin/Login-aspx_ReturnUrl_/admin_cms/default/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^ReturnUrl\=\%2Fadmin_cms\%2Flist_news_story\.aspx$
+RewriteRule ^[\/]?$ admin/Login-aspx_ReturnUrl_/admin_cms/list_news_story/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^ReturnUrl\=\%2Fadmin_cms\%2Fupdate_news_story\.aspx$
+RewriteRule ^[\/]?$ admin/Login-aspx_ReturnUrl_/admin_cms/update_news_story/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^ReturnUrl\=\%2Fadmin_cms\%2Fupdate_page\.aspx$
+RewriteRule ^[\/]?$ admin/Login-aspx_ReturnUrl_/admin_cms/update_page/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=$
+RewriteRule ^[\/]?$ forum/admin_action_login_return/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=MainBoard&action\=help$
+RewriteRule ^[\/]?$ forum/default_sub_MainBoard_action_help/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=MainPost&action\=help$
+RewriteRule ^[\/]?$ forum/default_sub_MainPost_action_help/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=MainTopic&action\=help$
+RewriteRule ^[\/]?$ forum/default_sub_MainTopic_action_help/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=Register&action\=help$
+RewriteRule ^[\/]?$ forum/default_sub_Register_action_help/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=Search&action\=help$
+RewriteRule ^[\/]?$ forum/default_sub_Search_action_help/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=ViewProfile&action\=help$
+RewriteRule ^[\/]?$ forum/default_sub_ViewProfile_action_help/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D1977$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_1977/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D1979$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_1979/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D1980$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_1980/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D1981$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_1981/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D1982$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_1982/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D1983$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_1983/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D1984$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_1984/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1986\%26pid\%3D1986$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1986_pid_1986/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1986\%26pid\%3D1989$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1986_pid_1989/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1986\%26pid\%3D1991$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1986_pid_1991/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1986\%26pid\%3D1994$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1986_pid_1994/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D1995$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_1995/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1986\%26pid\%3D1996$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1986_pid_1996/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1986\%26pid\%3D1997$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1986_pid_1997/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1986\%26pid\%3D1998$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1986_pid_1998/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D1999$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_1999/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D2000$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_2000/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1986\%26pid\%3D2001$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1986_pid_2001/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D2007$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_2007/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1986\%26pid\%3D2010$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1986_pid_2010/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D2013$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_2013/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D2016$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_2016/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D2017$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_2017/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D2019$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_2019/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1986\%26pid\%3D2021$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1986_pid_2021/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1986\%26pid\%3D2022$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1986_pid_2022/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D2023$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_2023/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D2025$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_2025/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D2029$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_2029/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D2031$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_2031/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977\%26pid\%3D2032$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1977_pid_2032/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dreply\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1986\%26pid\%3D2047$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_reply_action_posts_fid_6_tid_1986_pid_2047/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dshow\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1977$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_show_action_posts_fid_6_tid_1977/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dshow\%26action\%3Dposts\%26fid\%3D6\%26tid\%3D1986$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_show_action_posts_fid_6_tid_1986/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dshowsearch\%26action\%3Dposts$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_showsearch_action_posts/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dnew\%26action\%3Dtopics\%26fid\%3D6$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_new_action_topics_fid_6/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=sub\%3Dshow\%26action\%3Dtopics\%26fid\%3D6$
+RewriteRule ^[\/]?$ forum/default_action_login_return_sub_show_action_topics_fid_6/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=$
+RewriteRule ^[\/]?$ forum/default_action_login_return/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&return\=action\%3Dregister$
+RewriteRule ^[\/]?$ forum/default_action_login_return_action_register/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1977&page\=2$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1977_page_2/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1000$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1000/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1026$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1026/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1033$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1033/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1034$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1034/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1052$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1052/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1061$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1061/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1062$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1062/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1063$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1063/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1064$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1064/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1068$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1068/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1070$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1070/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1075$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1075/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1082$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1082/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1090$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1090/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1769$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1769/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1867$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1867/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1871$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1871/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1878$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1878/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1882$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1882/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1888$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1888/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1892$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1892/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1909$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1909/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1910$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1910/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1911$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1911/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1912$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1912/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1927$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1927/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1934$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1934/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1935$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1935/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1943$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1943/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1945$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1945/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1963$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1963/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1965$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1965/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1967$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1967/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1976$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1976/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1977$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1977/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1985$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1985/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1986$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1986/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1987$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1987/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=1988$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_1988/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=2002$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_2002/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=2005$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_2005/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=2006$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_2006/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=2033$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_2033/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=2043$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_posts_fid_6_tid_2043/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=posts&fid\=6&tid\=2196$
+RewriteRule ^[\/]?$ forum/Default_sub_show_action_posts_fid_6_tid_2196/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=showsearch&action\=posts$
+RewriteRule ^[\/]?$ forum/default_sub_showsearch_action_posts/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1004$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1004/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1013$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1013/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1019$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1019/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1022$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1022/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1029$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1029/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1075$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1075/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1080$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1080/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1082$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1082/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1083$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1083/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1084$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1084/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1086$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1086/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1087$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1087/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1091$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1091/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1093$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1093/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1094$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1094/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1097$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1097/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=1099$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_1099/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=15$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_15/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=179$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_179/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=296$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_296/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=471$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_471/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=531$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_531/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=551$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_551/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=56$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_56/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=571$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_571/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=576$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_576/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=620$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_620/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=665$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_665/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=672$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_672/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=73$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_73/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=8$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_8/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=836$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_836/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=841$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_841/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=855$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_855/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=886$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_886/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=892$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_892/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=967$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_967/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=977$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_977/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&action\=profile&uid\=998$
+RewriteRule ^[\/]?$ forum/default_sub_view_action_profile_uid_998/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=register$
+RewriteRule ^[\/]?$ forum/default_action_register/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=topics&fid\=15$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_topics_fid_15/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=topics&fid\=6&page\=2$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_topics_fid_6_page_2/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=topics&fid\=6&page\=3$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_topics_fid_6_page_3/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=topics&fid\=6&page\=4$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_topics_fid_6_page_4/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=topics&fid\=6&page\=5$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_topics_fid_6_page_5/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=topics&fid\=6&page\=6$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_topics_fid_6_page_6/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=topics&fid\=6&page\=7$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_topics_fid_6_page_7/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&action\=topics&fid\=6$
+RewriteRule ^[\/]?$ forum/default_sub_show_action_topics_fid_6/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^page\=1&subpage\=Truck\+10$
+RewriteRule ^[\/]?$ images/gallery/thumb_page_1_subpage_Truck_10/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=281$
+RewriteRule ^[\/]?$ news_item_id_281/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=282$
+RewriteRule ^[\/]?$ news_item_id_282/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=283$
+RewriteRule ^[\/]?$ news_item_id_283/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=294$
+RewriteRule ^[\/]?$ news_item_id_294/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=295$
+RewriteRule ^[\/]?$ news_item_id_295/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=296$
+RewriteRule ^[\/]?$ news_item_id_296/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=324$
+RewriteRule ^[\/]?$ news_item_id_324/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=325$
+RewriteRule ^[\/]?$ news_item_id_325/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=326$
+RewriteRule ^[\/]?$ news_item_id_326/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=329$
+RewriteRule ^[\/]?$ news_item_id_329/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=330$
+RewriteRule ^[\/]?$ news_item_id_330/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=331$
+RewriteRule ^[\/]?$ news_item_id_331/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=332$
+RewriteRule ^[\/]?$ news_item_id_332/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=333$
+RewriteRule ^[\/]?$ news_item_id_333/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=334$
+RewriteRule ^[\/]?$ news_item_id_334/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=337$
+RewriteRule ^[\/]?$ news_item_id_337/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=339$
+RewriteRule ^[\/]?$ news_item_id_339/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=340$
+RewriteRule ^[\/]?$ news_item_id_340/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=341$
+RewriteRule ^[\/]?$ news_item_id_341/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=344$
+RewriteRule ^[\/]?$ news_item_id_344/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=345$
+RewriteRule ^[\/]?$ news_item_id_345/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=361$
+RewriteRule ^[\/]?$ news_item_id_361/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=363$
+RewriteRule ^[\/]?$ news_item_id_363/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=371$
+RewriteRule ^[\/]?$ news_item_id_371/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=372$
+RewriteRule ^[\/]?$ news_item_id_372/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=373$
+RewriteRule ^[\/]?$ news_item_id_373/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=375$
+RewriteRule ^[\/]?$ news_item_id_375/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=376$
+RewriteRule ^[\/]?$ news_item_id_376/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=377$
+RewriteRule ^[\/]?$ news_item_id_377/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=380$
+RewriteRule ^[\/]?$ news_item_id_380/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=381$
+RewriteRule ^[\/]?$ news_item_id_381/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=424$
+RewriteRule ^[\/]?$ news_item_id_424/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=425$
+RewriteRule ^[\/]?$ news_item_id_425/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=426$
+RewriteRule ^[\/]?$ news_item_id_426/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=439$
+RewriteRule ^[\/]?$ news_item_id_439/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=448$
+RewriteRule ^[\/]?$ news_item_id_448/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=450$
+RewriteRule ^[\/]?$ news_item_id_450/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=458$
+RewriteRule ^[\/]?$ news_item_id_458/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=459$
+RewriteRule ^[\/]?$ news_item_id_459/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=460$
+RewriteRule ^[\/]?$ news_item_id_460/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=464$
+RewriteRule ^[\/]?$ news_item_id_464/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=465$
+RewriteRule ^[\/]?$ news_item_id_465/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=466$
+RewriteRule ^[\/]?$ news_item_id_466/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=467$
+RewriteRule ^[\/]?$ news_item_id_467/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=468$
+RewriteRule ^[\/]?$ news_item_id_468/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=469$
+RewriteRule ^[\/]?$ news_item_id_469/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=244$
+RewriteRule ^pages\.aspx$ pages_PageId_244/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=246$
+RewriteRule ^[\/]?$ pages_PageId_246/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=247$
+RewriteRule ^pages\.aspx$ pages_PageId_247/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=248$
+RewriteRule ^pages\.aspx$ pages_PageId_248/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=249$
+RewriteRule ^pages\.aspx$ pages_PageId_249/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=250$
+RewriteRule ^pages\.aspx$ pages_PageId_250/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=252$
+RewriteRule ^pages\.aspx$ pages_PageId_252/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=253$
+RewriteRule ^pages\.aspx$ pages_PageId_253/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=254$
+RewriteRule ^pages\.aspx$ pages_PageId_254/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=255$
+RewriteRule ^pages\.aspx$ pages_PageId_255/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=257$
+RewriteRule ^pages\.aspx$ pages_PageId_257/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=258$
+RewriteRule ^pages\.aspx$ pages_PageId_258/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=259$
+RewriteRule ^pages\.aspx$ pages_PageId_259/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=260$
+RewriteRule ^pages\.aspx$ pages_PageId_260/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=261$
+RewriteRule ^pages\.aspx$ pages_PageId_261/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=265$
+RewriteRule ^pages\.aspx$ pages_PageId_265/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=268$
+RewriteRule ^pages\.aspx$ pages_PageId_268/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=269$
+RewriteRule ^pages\.aspx$ pages_PageId_269/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=270$
+RewriteRule ^pages\.aspx$ pages_PageId_270/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=286$
+RewriteRule ^pages\.aspx$ pages_PageId_286/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=287$
+RewriteRule ^pages\.aspx$ pages_PageId_287/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=301$
+RewriteRule ^[\/]?$ pages_PageId_301/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=truck\-america\-festival\-lineup\.aspx$
+RewriteRule ^[\/]?$ pages-aspx_PageId_truck-america-festival-lineup/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=wood\-festival\-lineup\.aspx$
+RewriteRule ^[\/]?$ pages-aspx_PageId_wood-festival-lineup/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=login&amp;return\=$
+RewriteRule ^forum\/Default\.asp$ forum/Default_action_login_return/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^action\=register$
+RewriteRule ^forum\/Default\.asp$ forum/Default_action_register/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=showsearch&amp;action\=posts$
+RewriteRule ^forum\/Default\.asp$ forum/Default_sub_showsearch_action_posts/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=MainBoard&amp;action\=help$
+RewriteRule ^forum\/Default\.asp$ forum/Default_sub_MainBoard_action_help/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=show&amp;action\=topics&amp;fid\=6$
+RewriteRule ^forum\/Default\.asp$ forum/Default_sub_show_action_topics_fid_6/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&amp;action\=profile&amp;uid\=1$
+RewriteRule ^forum\/Default\.asp$ forum/Default_sub_view_action_profile_uid_1/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=1977$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_1977/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=1979$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_1979/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=1980$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_1980/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=1981$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_1981/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=1982$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_1982/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=1983$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_1983/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=1984$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_1984/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=1995$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_1995/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=1999$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_1999/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=2000$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_2000/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=2007$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_2007/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=2013$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_2013/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=2016$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_2016/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=2017$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_2017/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=2019$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_2019/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=2023$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_2023/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=2025$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_2025/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=2029$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_2029/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=2031$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_2031/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1977&amp;pid\=2032$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1977_pid_2032/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1986&amp;pid\=1986$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1986_pid_1986/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1986&amp;pid\=1989$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1986_pid_1989/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1986&amp;pid\=1991$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1986_pid_1991/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1986&amp;pid\=1994$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1986_pid_1994/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1986&amp;pid\=1996$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1986_pid_1996/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1986&amp;pid\=1997$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1986_pid_1997/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1986&amp;pid\=1998$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1986_pid_1998/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1986&amp;pid\=2001$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1986_pid_2001/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1986&amp;pid\=2010$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1986_pid_2010/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1986&amp;pid\=2021$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1986_pid_2021/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1986&amp;pid\=2022$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1986_pid_2022/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=reply&amp;action\=posts&amp;fid\=6&amp;tid\=1986&amp;pid\=2047$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_reply_action_posts_fid_6_tid_1986_pid_2047/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=MainPost&amp;action\=help$
+RewriteRule ^forum\/Default\.asp$ forum/Default_sub_MainPost_action_help/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=view&amp;action\=profile&amp;uid\=836$
+RewriteRule ^forum\/Default\.asp$ forum/Default_sub_view_action_profile_uid_836/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^sub\=new&amp;action\=topics&amp;fid\=6$
+RewriteRule ^forum\/default\.asp$ forum/default_sub_new_action_topics_fid_6/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=338$
+RewriteRule ^news_item\.aspx$ news_item_id_338/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^id\=454$
+RewriteRule ^news_item\.aspx$ news_item_id_454/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=299$
+RewriteRule ^pages\.aspx$ pages_PageId_299/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=298$
+RewriteRule ^pages\.aspx$ pages_PageId_298/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=285$
+RewriteRule ^pages\.aspx$ pages_PageId_285/? [L,R=301]
+RewriteRule ^streaming\/audio\/ESP_Across_The_Universe\.m3u$ streaming/audio/ESP_Across_The_Universe-m3u/? [L,R=301]
+RewriteRule ^streaming\/audio\/ESP_Blue_It_Is\.m3u$ streaming/audio/ESP_Blue_It_Is-m3u/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=274$
+RewriteRule ^pages\.aspx$ pages_PageId_274/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=275$
+RewriteRule ^pages\.aspx$ pages_PageId_275/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=276$
+RewriteRule ^pages\.aspx$ pages_PageId_276/? [L,R=301]
+RewriteCond %{QUERY_STRING} ^PageId\=277$
+RewriteRule ^pages\.aspx$ pages_PageId_277/? [L,R=301]

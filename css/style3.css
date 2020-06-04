@@ -1,0 +1,236 @@
+* {margin:0; padding:0}
+
+body{text-align:center; font: 1em Bookman Old Style, Georgia, Times, serif; font-size: 10pt; color: #343f4e; margin:0; padding:0}
+
+img {border-style: none;}
+
+#content a, #content a:visited { border-bottom:dashed 1px #343f4e; color: #343f4e; text-decoration:none; font-weight:bold}
+
+#content a:hover { background-color:#343f4e; color: #ffffff; text-decoration:none; font-weight:bold}
+
+#left a, #left a:visited { color: #343f4e; text-decoration:none; font-weight:bold}
+
+#left a:hover { background-color:#343f4e; color: #ffffff; text-decoration:none; font-weight:bold}
+
+td a, td a:visited { border-bottom:dashed 1px #343f4e; color: #343f4e; text-decoration:none; font-weight:bold}
+
+td a:hover { background-color:#343f4e; color: #ffffff; text-decoration:none; font-weight:bold}
+
+.folderlink a, a:visited, a:hover { text-decoration:none; }
+
+#wrapper {width:900px; background-image: url("../images/background.jpg"); background-repeat: repeat; margin:0 auto; border-style: none solid none solid; border-width: 1px; border-color: #dddddd}
+
+#header {width:900px; height:200px; background-image: url(../images/header_background2.gif);}
+
+#header_forum {width:900px; height:200px; background-image: url(../images/header_background2.gif);}
+
+.logo {position: relative; left:0px; top:0px; float: left;}
+
+.register{position: relative; right:0px; top:0px; float: right;}
+
+.banneradtop {position: relative; left:95px; top:28px; float: left; margin:0; padding:0}
+
+#awmAnchor-menu {margin:0; margin-left:25px; height:400px; z-index: 10;}
+
+#inner { width:900px; text-align:left; margin:0; margin-bottom:0}
+
+#left { width:220px; float:left; text-align:left;z-index: 10;}
+#left p {padding:0px 0px}
+
+#right { width:176px; float:left; text-align:left;}
+#right p {padding:0px 0px}
+
+#content {width:500px; margin-top:-40px; float:left; text-align:left;}
+
+#content_excerpt {width:900px; text-align:left;}
+
+#content p, #content h1, #content h2, #content h3 {padding: 0 25px; margin:0 0 1em 0}
+
+p, ul, h3 {clear:both}
+
+#content td span p {padding: 0 25px;}
+
+#content ul{margin-left:40px}
+
+#content p {font-size:14px;}
+#content pre {font: 1em Bookman Old Style, Georgia, Times, serif; font-size: 14px; color: #343f4e;margin-left:25px}
+#content h1 {font-size: 22px;}
+#content h2 {font-size: 24px; margin-bottom:0.5em;}
+#content h3 {font-size: 18px; margin-top:1.5em;}
+#content td {font-size:14px;}
+#content img {padding:4px; border:1px #cccccc solid}
+
+.catnumber {
+    font-size:10px;
+    margin-top: 5px;   
+}
+
+ol {padding: 0 60px; margin-bottom:1.5em}
+
+ul {margin-bottom:1.5em}
+
+#footer {height:60px; width:900px; text-align:left; background-image: url(../images/footer_background.gif);background-repeat:no-repeat}
+
+#footer p {padding:25px; padding-bottom:.8em; font-weight:bold; font-size:16px}
+
+#footer a, #footer a:visited { border-bottom:dashed 1px #343f4e; color: #343f4e; text-decoration:none; font-weight:bold}
+
+#footer a:hover { background-color:#343f4e; color: #ffffff; text-decoration:none; font-weight:bold}
+
+#form {
+}
+
+#form p {
+    clear: left;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+label {
+    width: 200px;
+    float: left;
+    text-align: right;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+.normal {
+    width: 20px;
+}
+
+textarea {
+    width: 220px;
+    height: 150px;
+    font-size: 16px;
+}
+
+.submitbutton {
+    width: 100px;
+}
+
+
+/* clear any float elements***********************************************/
+.clear {
+clear:both; 
+width:100%
+}
+
+.rightcolumnpics{
+position:relative;
+height:143px; width:150px;
+background-image: url(../images/right_pics_background.gif);
+background-repeat:no-repeat;
+overflow:hidden;
+margin-bottom:.75em;
+margin-left:0px;
+/* margin-left:25px***********************************************/
+}
+
+.rightcolumnpics span {
+ position: absolute;
+left: 16px;
+top: 15px;
+text-align: left;
+width: 120px;					   
+height: 85px;
+color:#ffffff; 					
+
+}
+
+.rightcolumnpics2{
+position:relative;
+height:143px; width:150px;
+background-image: url(../images/right_pics_background2.gif);
+background-repeat:no-repeat;
+overflow:hidden;
+margin-bottom:.75em;
+margin-left:0px;
+/* margin-left:25px***********************************************/
+}
+
+.rightcolumnpics2 span {
+ position: absolute;
+left: 16px;
+top: 15px;
+text-align: left;
+width: 120px;					   
+height: 85px;
+color:#ffffff; 					
+
+}
+
+.rightcolumnpics3{
+position:relative;
+height:143px; width:150px;
+background-image: url(../images/right_pics_background3.gif);
+background-repeat:no-repeat;
+overflow:hidden;
+margin-bottom:.75em;
+margin-left:0px;
+/* margin-left:25px***********************************************/
+}
+
+.rightcolumnpics3 span {
+ position: absolute;
+left: 16px;
+top: 15px;
+text-align: left;
+width: 120px;					   
+height: 85px;
+color:#ffffff; 				
+}
+
+.rightcolumnpics span p{
+margin:4px 20px; line-height:1em; text-align:center
+}
+
+
+.rightcolumnpics2 span p{
+margin:4px 20px; line-height:1em; text-align:center
+}
+
+.rightcolumnpics3 span p{
+margin:4px 20px; line-height:1em; text-align:center
+}
+
+.rightcolumnpics span a, .rightcolumnpics3 span a:visited { color:#ffffff; text-decoration:none}
+.rightcolumnpics span a:hover { color:#D0C2A7; text-decoration:none}
+
+
+.rightcolumnpics2 span a, .rightcolumnpics3 span a:visited { color:#ffffff; text-decoration:none}
+.rightcolumnpics2 span a:hover { color:#D0C2A7; text-decoration:none}
+
+
+.rightcolumnpics3 span a, .rightcolumnpics3 span a:visited { color:#ffffff; text-decoration:none}
+.rightcolumnpics3 span a:hover { color:#D0C2A7; text-decoration:none}
+
+.itemimage {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding: 2px;
+    border: 1px solid #aaaaaa;
+}
+
+.itemimagecenter {
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding: 2px;
+    border: 1px solid #aaaaaa;
+}
+
+#right li {margin-bottom:0.5em}
+
+#right li a, #right li a:visited {
+border-bottom:dashed 1px #343f4e;
+font-size:15px;
+color: #AA032E;
+text-decoration:none;
+font-weight:bold}
+
+#right li a:hover {background-color:#343f4e; color: #ffffff; text-decoration:none;}
+
+.bookmarker a, .bookmarker a:hover{text-decoration:none;}
